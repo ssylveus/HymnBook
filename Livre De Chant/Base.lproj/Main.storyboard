@@ -1,21 +1,126 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QSS-zF-XF1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--View Controller - Hymnes-->
+        <scene sceneID="KDC-1u-lGG">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <viewController id="Md6-lk-XId" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kgb-F7-bOh"/>
+                        <viewControllerLayoutGuide type="bottom" id="qjE-XH-Gq9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VXV-gj-Th3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vkR-Uc-82s">
+                                <rect key="frame" x="-6" y="41" width="552" height="527"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" horizontalHuggingPriority="516" verticalHuggingPriority="246" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="yQP-dg-46V" customClass="CustomCell">
+                                        <rect key="frame" x="0.0" y="86" width="552" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yQP-dg-46V" id="WWt-cb-ZfS">
+                                            <rect key="frame" x="0.0" y="0.0" width="519" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="TeX-xG-dTr" kind="push" identifier="detailView" id="9sw-4a-Lm1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Md6-lk-XId" id="jUo-FH-8kq"/>
+                                    <outlet property="delegate" destination="Md6-lk-XId" id="HlH-lr-OvF"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BmQ-Wd-U6s">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Md6-lk-XId" id="bKF-eT-6S0"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Hymnes" id="epY-U4-RhO"/>
+                    <connections>
+                        <outlet property="myTableView" destination="vkR-Uc-82s" id="eBp-zn-0SB"/>
+                        <outlet property="searchDisplayController" destination="f4p-gr-Jgi" id="UCd-gx-8jd"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kU-DU-tQa" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="f4p-gr-Jgi">
+                    <connections>
+                        <outlet property="delegate" destination="Md6-lk-XId" id="8yv-m0-pPK"/>
+                        <outlet property="searchContentsController" destination="Md6-lk-XId" id="2bH-aP-RHP"/>
+                        <outlet property="searchResultsDataSource" destination="Md6-lk-XId" id="09J-hH-NDt"/>
+                        <outlet property="searchResultsDelegate" destination="Md6-lk-XId" id="49e-QC-087"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="425" y="-338"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="e9n-e9-zjf">
+            <objects>
+                <viewController id="TeX-xG-dTr" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h31-ze-Fd8"/>
+                        <viewControllerLayoutGuide type="bottom" id="dxs-7j-TG8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xLE-6I-mFq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-hH-ytZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TeX-xG-dTr" id="Z33-0U-bPg"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" id="WRy-rX-AJd"/>
+                    <connections>
+                        <outlet property="detailTxt" destination="I8h-hH-ytZ" id="zTp-KA-iQO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYv-5o-1gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="-331"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sTX-Ni-ETf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QSS-zF-XF1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oxg-xe-7YF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="y1A-uA-fdi">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Md6-lk-XId" kind="relationship" relationship="rootViewController" id="nwE-WK-X1L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcH-TJ-u6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="-239"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
