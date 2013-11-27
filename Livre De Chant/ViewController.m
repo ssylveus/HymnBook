@@ -147,19 +147,18 @@
     return cell;
     
 }
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    //cell.backgroundColor = [UIColor colorWithRed:0.7058 green:0.5582 blue:0.0327 alpha:1];
-    
-}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"detailView" sender:self];
-    DetailViewController *detail = [[DetailViewController alloc]init];
+   
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    DetailViewController *detail = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     if(isFiltered == YES)
     {
         detail.tempString = [filteredHymnsArray objectAtIndex:indexPath.row];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"loadHymn" object:nil];
         [searchHymn resignFirstResponder];
+        [self.navigationController pushViewController:detail animated:YES];
         
         
     }
@@ -168,31 +167,13 @@
         detail.tempString = [hymnTitleArray objectAtIndex:indexPath.row];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"loadHymn" object:nil];
         [searchHymn resignFirstResponder];
+        [self.navigationController pushViewController:detail animated:YES];
+        
+        //[self presentViewController:detail animated:YES completion:nil];
     }
     
     [searchHymn resignFirstResponder];
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"detailView"]) {
-        NSIndexPath *indexpath = [self.myTableView indexPathForSelectedRow];
-        
-        DetailViewController *destViewController = segue.destinationViewController;
-        if(isFiltered == YES)
-        {
-            destViewController.tempString = [filteredHymnsArray objectAtIndex:indexpath.row];
-            [searchHymn resignFirstResponder];
-            
-            
-        }
-        else
-        {
-            destViewController.tempString = [hymnTitleArray objectAtIndex:indexpath.row];
-            [searchHymn resignFirstResponder];
-        }
-        
-        [searchHymn resignFirstResponder];
-        
-    }
-}
+
 
 @end

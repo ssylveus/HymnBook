@@ -7,7 +7,7 @@
         <!--View Controller - Hymnes-->
         <scene sceneID="KDC-1u-lGG">
             <objects>
-                <viewController id="Md6-lk-XId" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="Md6-lk-XId" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kgb-F7-bOh"/>
                         <viewControllerLayoutGuide type="bottom" id="qjE-XH-Gq9"/>
@@ -70,7 +70,7 @@
         <!--Detail View Controller-->
         <scene sceneID="e9n-e9-zjf">
             <objects>
-                <viewController id="TeX-xG-dTr" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="TeX-xG-dTr" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h31-ze-Fd8"/>
                         <viewControllerLayoutGuide type="bottom" id="dxs-7j-TG8"/>
